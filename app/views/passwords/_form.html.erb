@@ -1,0 +1,37 @@
+<%= form_with(model: password, local: true) do |form| %>
+  <div>
+    <%= form.label :length %>
+    <%= form.number_field :length, min: 4, max: 12 %>
+    <% if password.errors[:length].any? %>
+      <p class="error"><%= password.errors[:length].join(', ') %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :case_option %>
+    <%= form.select :case_option, options_for_select([['Uppercase', 'uppercase'], ['Lowercase', 'lowercase'], ['Mixed', 'mixed'], ['Capitalize', 'capitalize']], password.case_option) %>
+    <% if password.errors[:case_option].any? %>
+      <p class="error"><%= password.errors[:case_option].join(', ') %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :add_non_letter %>
+    <%= form.check_box :add_non_letter %>
+    <% if password.errors[:add_non_letter].any? %>
+      <p class="error"><%= password.errors[:add_non_letter].join(', ') %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :non_letter_count %>
+    <%= form.number_field :non_letter_count, min: 0, max: 2 %>
+    <% if password.errors[:non_letter_count].any? %>
+      <p class="error"><%= password.errors[:non_letter_count].join(', ') %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit class: 'button' %>
+  </div>
+<% end %>

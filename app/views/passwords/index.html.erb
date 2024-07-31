@@ -1,0 +1,29 @@
+<h1>Passwords</h1>
+
+<div class="password-grid">
+  <% @passwords.each do |password| %>
+    <div class="password-item">
+      <div class="password-content">
+        <strong>Content:</strong> <%= password.content %>
+      </div>
+      <div class="password-details">
+        <p><strong>Length:</strong> <%= password.length %></p>
+        <p><strong>Case Option:</strong> <%= password.case_option %></p>
+        <p><strong>Add Non-Letter:</strong> <%= password.add_non_letter %></p>
+        <p><strong>Non-Letter Count:</strong> <%= password.non_letter_count %></p>
+      </div>
+      <div class="password-actions">
+        <%= link_to 'Show', password, class: 'button' %>
+        <%= link_to 'Edit', edit_password_path(password), class: 'button' %>
+        <%= button_to 'Delete', password_path(password), method: :delete, class: 'button delete' %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<br>
+
+<div class="button-container">
+  <%= link_to 'New Password', new_password_path, class: 'button' %>
+  <%= button_to 'Clear All Passwords', clear_all_passwords_path, method: :post, class: 'button clear-all' %>
+</div>

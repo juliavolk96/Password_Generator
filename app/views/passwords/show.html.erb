@@ -1,0 +1,27 @@
+<p>
+  <strong>Content:</strong>
+  <%= @password.content %>
+</p>
+
+<p>
+  <strong>Length:</strong>
+  <%= @password.length %>
+</p>
+
+<p>
+  <strong>Case Option:</strong>
+  <%= @password.case_option %>
+</p>
+
+<p>
+  <strong>Add Non-Letter:</strong>
+  <%= @password.add_non_letter %>
+</p>
+
+<p>
+  <strong>Non-Letter Count:</strong>
+  <%= @password.non_letter_count %>
+</p>
+
+<%= link_to 'Edit', edit_password_path(@password), class: "button" %> |
+<%= link_to 'Back', passwords_path, class: "button" %>
